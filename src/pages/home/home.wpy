@@ -1,24 +1,37 @@
 <style lang='less' >
+@import '../../assets/less/theme.less';
+page{
+    height: 100%;
+}
 .home-container{
     display: flex;
     flex-direction: column;
     height: 100%;
     .user-part{
         height: 200rpx;
+        background-color: @lightBlue;
+        color: #fff;
+        box-sizing: border-box;
+        padding: 0 10px 10px 10px;
+        .user-name{
+            display: block;
+            font-size: 22px;
+            margin-bottom: 30rpx;
+        }
     }
     .inquiry-part{
         height: 200rpx;
     }
     .list-part{
         flex: 1;
-        background-color: #000
     }
 }
 </style>
 <template>
     <view class='home-container'>
         <view class='user-part'>
-            <text>home 页面</text>
+            <text class='user-name'>Hi, 客户001</text>
+            <text class='user-company'>网金保险销售服务（内蒙古）分公司</text>
         </view>
         <view class='inquiry-part'>
             <text>询价部分</text>
@@ -33,7 +46,7 @@
     import wepy from 'wepy'
     export default class Home extends wepy.page {
       config = {
-        navigationBarTitleText: '首页'
+        navigationBarTitleText: ''
       }
     }
 </script>
