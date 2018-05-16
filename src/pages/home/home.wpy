@@ -32,11 +32,24 @@ page{
             margin-bottom: 30rpx;
         }
     }
-    .inquiry-part{
-        height: 200rpx;
-    }
     .list-part{
         flex: 1;
+        .title-container{
+            width: 100%;
+            padding-left: 20rpx;
+            padding-right: 20rpx;
+            box-sizing: border-box;
+            height: 60rpx;
+            line-height: 60rpx;
+            .vertical-span{
+                width: 8rpx;
+                height: 30rpx;
+                color: #108ee9;
+            }
+            .all-enquiry{
+                float: right;
+            }
+        }
     }
     .choosed{
         background-color: #f0f;
@@ -53,11 +66,19 @@ page{
             </view>
             
         </view>
-        <view class='inquiry-part'>
-            <text>询价部分</text>
-        </view>
         <view class='list-part'>
-            <text>新动态</text>
+            <view class='title-container'>
+                <text><text class='vertical-span'></text>新动态</text>
+                <text class='all-enquiry'>全部询价></text>
+            </view>
+            <view class='list-container'>
+                <view class='list-item'></view>
+                <view class='list-item'></view>
+                <view class='list-item'></view>
+                <view class='list-item'></view>
+                <view class='list-item'></view>
+                <view class='list-item'></view>
+            </view>
         </view>
     </view>
     
