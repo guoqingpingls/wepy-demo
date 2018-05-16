@@ -3,16 +3,29 @@
 page{
     height: 100%;
 }
-.home-container{
+.home-wrapper{
     display: flex;
     flex-direction: column;
     height: 100%;
     .user-part{
-        height: 200rpx;
-        background-color: @lightBlue;
-        color: #fff;
-        box-sizing: border-box;
-        padding: 0 10px 10px 10px;
+        color:#fff;
+        box-sizing:border-box;
+        background-color:#f5f5f5;
+        position:relative;
+        height:600rpx;
+
+        .bg-image{
+            width: 100%;
+            height: 400rpx;
+        }
+        .user-content{
+            position:absolute;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            padding:40rpx 40rpx 0rpx;
+        }
         .user-name{
             display: block;
             font-size: 22px;
@@ -31,20 +44,20 @@ page{
 }
 </style>
 <template>
-    <view class='home-container'>
+    <view class='home-wrapper'>
         <view class='user-part'>
-            <text class='user-name'>Hi, 客户001</text>
-            <text class='user-company'>网金保险销售服务（内蒙古）分公司</text>
+            <image src="../../assets/images/index/bg.jpg" class='bg-image'/>
+            <view class='user-content'>
+                <text class='user-name'>Hi, 客户001</text>
+                <text class='user-company'>网金保险销售服务（内蒙古）分公司</text>
+            </view>
+            
         </view>
         <view class='inquiry-part'>
             <text>询价部分</text>
         </view>
         <view class='list-part'>
             <text>新动态</text>
-            <view>{{choosedIdList}}--{{choosedNameList}}</view>
-            <view wx:for="list">
-                <text bindTap="choosedItem" data-item="{{item}}" style="width: 100rpx;height: 100rpx;border: 2rpx solid #ccc;display: inline-block" class="{{choosedList.indexOf(item.id) > -1 ? 'choosed' : ''}}">{{item.name}}</text>
-            </view>
         </view>
     </view>
     
@@ -57,40 +70,9 @@ page{
       };
       data = {
         choosedIdList: [],
-        choosedNameList: [],
-        list: [
-          {
-            id: 1111,
-            name: '1111'
-          },
-          {
-            id: 2222,
-            name: '2222'
-          },
-          {
-            id: 3333,
-            name: '3333'
-          }
-        ]
+        choosedNameList: []
       };
       methods = {
-        choosedItem (e) {
-          let tmpId = e.currentTarget.dataset.item.id
-          let tmpName = e.currentTarget.dataset.item.name
-          let tmpChoosedId = this.data.choosedIdList
-          let tmpChoosedName = this.data.choosedNameList
-          if (tmpChoosedId.indexOf(tmpId) > -1 || tmpChoosedName.indexOf(tmpName) > -1) {
-            tmpChoosedId.splice(tmpChoosedId.indexOf(tmpId), 1)
-            tmpChoosedName.splice(tmpChoosedName.indexOf(tmpName), 1)
-          } else {
-            tmpChoosedId.push(tmpId)
-            tmpChoosedName.push(tmpName)
-          }
-          this.setData({
-            choosedIdList: tmpChoosedId,
-            choosedNameList: tmpChoosedName
-          })
-        }
       }
     }
 </script>
