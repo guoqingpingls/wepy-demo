@@ -114,8 +114,8 @@ page{
             padding-left: 20rpx;
             padding-right: 20rpx;
             box-sizing: border-box;
-            height: 60rpx;
-            line-height: 60rpx;
+            height: 80rpx;
+            line-height: 80rpx;
             font-size:32rpx;
             color:#454545;
             .vertical-span{
@@ -147,7 +147,7 @@ page{
 <template>
     <view class='home-wrapper'>
         <view class='user-part'>
-            <image src="../../assets/images/index/bg.jpg" class='bg-image'/>
+            <image src="../../assets/images/index/bg.jpg" class='bg-image' />
             <view class='user-content'>
                 <view>
                     <text class='user-name'>Hi, 客户001</text>
@@ -155,10 +155,10 @@ page{
                 </view>
                 <view class='enquire-wrapper'>
                     <view class='enquire-title'>
-                        <text ><text class='vertical-span'></text>车险询价，从这里开始</text>
-                        <text class='new-car'><image class='choose-new' src='../../assets/images/index/choose.png'>新车未上牌</text>
+                        <text><text class='vertical-span'></text>车险询价，从这里开始</text>
+                        <text class='new-car'><image class='choose-new' src='../../assets/images/index/choose.png' />新车未上牌</text>
                     </view>
-                    <view class='upload-btn'>
+                    <view class='upload-btn' bindtap="toUploadPage">
                         <image class='upload-image' src='../../assets/images/index/upload.png'/>
                         <view class='upload-title'>
                             <text class='tip-title'>上传证件照</text>
@@ -206,6 +206,9 @@ page{
         choosedNameList: []
       };
       methods = {
+        toUploadPage () {
+          this.$redirect('./uploadPage')
+        }
       }
     }
 </script>
